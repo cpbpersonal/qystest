@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qys.server.dao.FileMapper">
+    <select id="findUrl" resultType="com.qys.server.entity.UploadFile">
+        select * from UploadFile where uuidName = #{uuid};
+    </select>
+
+    <insert id="addFile" parameterType="com.qys.server.entity.UploadFile">
+      INSERT INTO UploadFile (size ,type ,oldName,time ,url,uuidName,id) VALUES (#{size },#{type },#{oldName},#{time },#{url},#{uuidName},#{id});
+    </insert>
+</mapper>
